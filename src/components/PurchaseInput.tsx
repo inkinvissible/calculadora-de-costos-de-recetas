@@ -74,7 +74,7 @@ export default function PurchaseInput({ onAddPurchase }: PurchaseInputProps) {
                 <select
                     value={unit}
                     onChange={(e) => setUnit(e.target.value)}
-                    className="p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+                    className="p-3 border text-gray-500 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
                     required
                 >
                     <option value="">Seleccionar unidad</option>

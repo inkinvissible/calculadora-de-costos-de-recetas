@@ -1,10 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import {useEffect, useState} from "react"
 import PurchaseInput from "./components/PurchaseInput.tsx"
 import IngredientInput from "./components/IngredientInput.tsx"
 import RecipeSummary from "./components/RecipeSummary.tsx"
 import PurchaseList from "./components/PurchaseList.tsx"
+import About from "./components/About.tsx";
 
 type Purchase = {
     id: string
@@ -60,28 +61,33 @@ export default function RecipeExpenseCalculator() {
 
     return (
         <div className="container mx-auto p-4">
-            <h1 className="text-3xl font-bold mb-4">Calculadora de Gastos de Receta</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center text-white">Calculadora de costos de receta</h1>
+            <About />
 
-            <div className="md:flex justify-around w-8xl mx-auto">
-                <div className="max-w-lg mx-auto p-6 bg-gray-950 text-white shadow-md rounded-lg">
-                    <PurchaseInput onAddPurchase={addPurchase} />
-                    <PurchaseList purchases={purchases} onEditPurchase={editPurchase} onDeletePurchase={deletePurchase} />
+            <div className="w-3/4 mx-auto">
+                <div className="md:flex justify-between w-full mx-auto">
+                    <div className="max-w-lg p-6 bg-gray-950 text-white shadow-md rounded-lg">
+                        <PurchaseInput onAddPurchase={addPurchase}/>
+                        <PurchaseList purchases={purchases} onEditPurchase={editPurchase}
+                                      onDeletePurchase={deletePurchase}/>
+                    </div>
+                    <div className="max-w-lg p-6 bg-gray-950 text-white shadow-md rounded-lg">
+                        <IngredientInput
+                            onAddIngredient={addIngredient}
+                            onEditIngredient={editIngredient}
+                            onDeleteIngredient={deleteIngredient}
+                            purchases={purchases}
+                        />
+                    </div>
                 </div>
-                <div className="max-w-lg mx-auto p-6 bg-gray-950 text-white shadow-md rounded-lg">
-                    <IngredientInput
-                        onAddIngredient={addIngredient}
-                        onEditIngredient={editIngredient}
-                        onDeleteIngredient={deleteIngredient}
-                        purchases={purchases}
-                    />
-                </div>
+                <RecipeSummary
+                    ingredients={ingredients}
+                    totalCost={totalCost}
+                    servings={servings}
+                    onServingsChange={setServings}
+                />
             </div>
-            <RecipeSummary
-                ingredients={ingredients}
-                totalCost={totalCost}
-                servings={servings}
-                onServingsChange={setServings}
-            />
+
         </div>
     )
 }

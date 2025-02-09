@@ -89,12 +89,12 @@ export default function IngredientInput({
                                 setUnit(purchase.unit)
                             }
                         }}
-                        className="p-2 border rounded"
+                        className="p-2 border rounded text-gray-500"
                         required
                     >
-                        <option value="">Seleccionar ingrediente</option>
+                        <option value="" className="text-gray-500">Seleccionar ingrediente</option>
                         {purchases.map((purchase) => (
-                            <option key={purchase.id} value={purchase.id}>
+                            <option className="text-gray-500" key={purchase.id} value={purchase.id}>
                                 {purchase.name}
                             </option>
                         ))}

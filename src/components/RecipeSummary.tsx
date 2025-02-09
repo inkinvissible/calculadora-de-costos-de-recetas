@@ -15,7 +15,7 @@ type RecipeSummaryProps = {
 
 export default function RecipeSummary({ ingredients, totalCost, servings, onServingsChange }: RecipeSummaryProps) {
     return (
-        <div className="mt-4 bg-gray-950 rounded-2xl p-4 text-white w-7xl mx-auto">
+        <div className="mt-4 bg-gray-950 rounded-2xl p-4 text-white w-full mx-auto">
             <h2 className="text-xl font-semibold mb-2">Resumen de la Receta</h2>
             <div className="mb-4">
                 <label htmlFor="servings" className="mr-2">
